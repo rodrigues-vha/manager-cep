@@ -1,5 +1,7 @@
 package br.home.vitor.mapper;
 
+import java.time.format.DateTimeFormatter;
+
 import br.home.vitor.api.dto.ViaCepDTO;
 import br.home.vitor.model.ViaCepModel;
 
@@ -24,7 +26,6 @@ public class ViaCepMapper {
 	}
 	
 	public static ViaCepDTO modelToDTO(ViaCepModel model) {
-		
 		ViaCepDTO dto = new ViaCepDTO();
 		dto.setCep(model.getCep());
 		dto.setLogradouro(model.getLogradouro());
@@ -39,6 +40,8 @@ public class ViaCepMapper {
 		dto.setGia(model.getGia());
 		dto.setDdd(model.getDdd());
 		dto.setSiafi(model.getSiafi());
+		DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		dto.setDataConsulta(model.getData_consulta().format(f));
 		return dto;
 	}
 }
