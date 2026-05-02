@@ -22,4 +22,23 @@ public class ViaCepMapper {
 		entity.setSiafi(dto.getSiafi());
 		return entity;
 	}
+	
+	public static ViaCepDTO modelToDTO(ViaCepModel model) {
+		
+		ViaCepDTO dto = new ViaCepDTO();
+		dto.setCep(model.getCep());
+		dto.setLogradouro(model.getLogradouro());
+		dto.setComplemento(model.getComplemento());
+		dto.setUnidade(model.getUnidade());
+		dto.setBairro(model.getBairro());
+		dto.setLocalidade(model.getLocalidade());
+		dto.setUf(model.getUf());
+		dto.setEstado(model.getEstado());
+		dto.setRegiao(model.getRegiao());
+		dto.setIbge(model.getIbge());
+		dto.setGia(model.getGia());
+		dto.setDdd(model.getDdd());
+		dto.setSiafi(model.getSiafi());
+		return dto;
+	}
 }

@@ -1,5 +1,7 @@
 package br.home.vitor.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +36,12 @@ public class ConsultaCepController {
 	public ResponseEntity<String> estadoMais(){
 		String estado = relatorioCepService.EstadoMaisAcessdo();
 		return new ResponseEntity<>(estado, HttpStatus.OK);
+	}
+	
+	@GetMapping("/relatoriocep/todas-consultas-feitas")
+	public ResponseEntity<List<ViaCepDTO>> todasConsultas(){
+		List<ViaCepDTO> consultas = relatorioCepService.ObterTodasConsultasFeitas();
+		return new ResponseEntity<>(consultas, HttpStatus.OK);
 	}
 }
 
